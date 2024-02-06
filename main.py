@@ -141,8 +141,8 @@ while running:
     pygame.display.flip()
     clock.tick(60)
 
+big = pygame.font.SysFont("Manjari", 50)
 final_text = replaceable_text.format(*blanks_storage)
-print(final_text)
 final_split = final_text.split("\n")
 to_split = final_split[0].split(" ")
 current_line = ""
@@ -162,17 +162,17 @@ current_line = ""
 current_line_preview = ""
 for word in final_split[2].split(" "):
     current_line_preview += word + " "
-    if small.size(current_line_preview)[0] < math.ceil(s_width * 0.8):
+    if small.size(current_line_preview)[0] < math.ceil(s_width * 0.9):
         current_line += word + " "
     else:
         small_lines.append(current_line)
         current_line = word + " "
         current_line_preview = word + " "
 small_lines.append(current_line)
+lines_height = 0
 for line in lines:
-    print(line)
-for line in small_lines:
-    print(line)
+    lines_height += big.size(line)[1] + 10
+lines_start = math.floor((s_height / 2) - (lines_height / 2))
 
 while generating:
     for event in pygame.event.get():
@@ -181,6 +181,24 @@ while generating:
 
     rgb()
     screen.fill(pygame.Color(r, g, b))
+
+    curr_lines_height = lines_start
+
+    for line in lines:
+        line_render = big.render(line, False, (255, 255, 255))
+        line_r = line_render.get_rect()
+        line_r.top = curr_lines_height
+        line_r.left = math.floor(s_width * 0.1)
+        screen.blit(line_render, line_r)
+        curr_lines_height += line_r.height + 10
+
+    for line in small_lines:
+        line_render = small.render(line, False, (255, 255, 255))
+        line_r = line_render.get_rect()
+        line_r.top = curr_lines_height
+        line_r.right = math.ceil(s_width * 0.9)
+        screen.blit(line_render, line_r)
+        curr_lines_height += line_r.height + 5
 
     pygame.display.flip()
     clock.tick(60)

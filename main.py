@@ -36,7 +36,7 @@ type_text = [
 blanks_storage = []
 i = 0
 
-replaceable_text = "{}, {} Giancarlo Beritella. How’s the {}? How are the {}? I feel like it’s been ages since we {} at CMCB. I really enjoy {} with you, I feel like it is always very {}. We could {} about anything from {} to {} to how {}. Sometimes I just want to {} your {} and {} at what’s going on in there. We should work on more {} together. {}.\n- Christian, with some help from his ARTV 101 class\nP.S. I've never met anyone with the same {} as you. I think that's pretty {}."
+replaceable_text = "{}, {} Giancarlo Beritela. How’s the {}? How are the {}? I feel like it’s been ages since we {} at CMCB. I really enjoy {} with you, I feel like it is always very {}. We could {} about anything from {} to {} to how {}. Sometimes I just want to {} your {} and {} at what’s going on in there. We should work on more {} together. {}.\n- Christian, with some help from his ARTV 101 class\nP.S. I've never met anyone with the same {} as you. I think that's pretty {}."
 final_text = ""
 
 r = 0
